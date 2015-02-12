@@ -2,10 +2,21 @@ doctype html
 html(lang='en')
   head
     meta(charset='utf-8')
-    title Prototype
+    title Death by Zip
     link(rel='stylesheet', href='/style.css')
   body
-    h1 Hello, World
+    h1 Death by Zip Code
+    label Pick a Year
+    select#year
+      - for(var i = 1999; i < 2013; i++)
+        option= i
+    label Pick a Type
+    select#disease
+      - var full = [ 'Heart Disease', 'Cancer', 'Stroke', 'Respiratory', 'Injury', 'Pneumonia', 'Diabetes', 'Alzheimer', 'Liver', 'Suicide', 'Hypertension', 'Homicide', 'Other', 'Unknown' ];
+      - var abb = [ 'htd', 'can', 'stk', 'cld', 'inj', 'pnf', 'dia', 'alz', 'liv', 'sui', 'hyp', 'hom', 'oth', 'unk' ];
+      - for(var i = 0; i < full.length; i++)
+        option(value=abb[i])= full[i]
+    button#get-data Get Data
     script(src='/vendor/jquery/dist/jquery.js')
     script(src='/vendor/lodash/lodash.js')
     script(src='/main.js')
